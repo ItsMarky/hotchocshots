@@ -122,6 +122,18 @@
             padding: 25px;
             box-shadow: var(--shadow-soft);
         }
+        
+        /* =================================================================
+           3.5 Announcement Bar
+           ================================================================= */
+        .announcement-bar {
+            background: var(--color-dark-brown);
+            color: var(--color-menu-tan);
+            text-align: center;
+            padding: 10px 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
 
         /* =================================================================
            4. Header & Navigation
@@ -169,6 +181,8 @@
             display: none;
             font-size: 2rem;
             cursor: pointer;
+            background: none;
+            border: none;
         }
 
        /* =================================================================
@@ -190,7 +204,7 @@
                       url('images/hero.png');
     
     background-size: cover;       /* Ensures the image covers the whole area */
-    background-position: center top;  /* Centers the image */
+    background-position: center top;  /* Aligns image to the top */
     background-repeat: no-repeat; /* Stops the image from tiling */
 
     /* Change the text color to white to stand out */
@@ -500,34 +514,30 @@
             .flavour-grid { grid-template-columns: 1fr 1fr; }
             .product-grid { grid-template-columns: 1fr 1fr; }
             .slabs-extras-grid { grid-template-columns: 1fr; }
-            .how-to-order-steps { grid-template-columns: 1fr; } /* <-- MOBILE FIX */
+            .how-to-order-steps { grid-template-columns: 1fr; }
         }
         
+        /* START: MOBILE MENU FIX */
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             .hero-content h1 { font-size: 2.8rem; }
             
-            .main-nav { 
-                display: none; /* Hide nav, but keep container */
-            }
             .main-header .container {
+                position: relative; /* Allows nav to be positioned inside */
                 justify-content: space-between;
             }
-            /* Adjust so logo is left and nav links are right */
-            .logo-link {
-                order: 0;
-            }
-            .main-nav {
-                order: 1;
-                display: flex; /* Show nav on desktop */
-            }
+
             .menu-toggle {
                 display: block; /* Show hamburger */
                 order: -1; /* Move hamburger to the left */
+                font-size: 2rem;
+                cursor: pointer;
+                background: none;
+                border: none;
+                padding: 0;
+                z-index: 1002; /* Make sure it's on top */
             }
-            .main-header .container {
-                justify-content: space-between;
-            }
+
             .logo-link {
                 order: 0;
                 /* Center the logo when hamburger is present */
@@ -538,27 +548,64 @@
             .logo { 
                 width: 60px;
             }
-            .main-nav {
-                display: none; /* Hide nav links again */
+
+            .main-nav { 
+                /* This is the default HIDDEN state */
+                display: flex;
+                flex-direction: column; /* Stack links vertically */
+                gap: 0;
+                
+                position: absolute; /* Position it over the page */
+                top: 0;
+                left: 0;
+                width: 100%;
+                
+                /* === NEW TRANSLUCENT STYLE === */
+                /* Uses your tan color with 95% opacity */
+                background: rgba(243, 239, 233, 0.95); 
+                
+                /* This adds the modern blur effect */
+                -webkit-backdrop-filter: blur(10px);
+                backdrop-filter: blur(10px);
+                /* === END NEW STYLE === */
+                
+                padding: 80px 20px 20px 20px; /* Add padding (top for header) */
+                box-shadow: var(--shadow-soft);
+                
+                /* Hide it by moving it up */
+                transform: translateY(-100%); 
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease-in-out;
+                z-index: 1001; /* Below toggle, above content */
             }
             
+            .main-nav.nav-open {
+                /* This is the VISIBLE state */
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .main-nav a {
+                padding: 15px 0; /* Make links easy to tap */
+                text-align: center;
+                border-bottom: 1px solid var(--color-menu-border);
+            }
+            .main-nav a:last-child {
+                border-bottom: none;
+            }
+            .main-nav a:hover {
+                border-bottom-color: var(--color-menu-border); /* Tweak hover */
+                color: var(--color-festive-red);
+            }
         }
+        /* END: MOBILE MENU FIX */
         
         @media (max-width: 500px) {
             .product-nav-grid { grid-template-columns: 1fr; }
             .flavour-grid { grid-template-columns: 1fr; }
             .product-grid { grid-template-columns: 1fr; }
-        }
-		/* =================================================================
-           3.5 Announcement Bar
-           ================================================================= */
-        .announcement-bar {
-            background: var(--color-dark-brown);
-            color: var(--color-menu-tan);
-            text-align: center;
-            padding: 10px 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -876,5 +923,19 @@
         </div>
     </footer>
     
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            
+            // When you click the hamburger button...
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', () => {
+                    //...add or remove the 'nav-open' class from the menu
+                    mainNav.classList.toggle('nav-open');
+                });
+            }
+        });
+    </script>
     </body>
 </html>
