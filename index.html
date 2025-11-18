@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hot Choc Shots | Gourmet Fudge & Hot Chocolate Gifts</title>
+    <title>Hot Choc Shots | Gourmet Fudge & Hot Chocolate</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
     <style>
-        /* =================================================================
-           1. Root Variables (Logo-inspired + Menu Tan)
-           ================================================================= */
+        /* Variables */
         :root {
-            --color-dark-brown: #3E2723; /* Logo background */
-            --color-menu-tan: #F3EFE9;   /* Menu background */
+            --color-dark-brown: #3E2723;
+            --color-menu-tan: #F3EFE9;
             --color-menu-border: #D7CCC8;
-            --color-festive-red: #D32F2F; /* Logo hat */
+            --color-festive-red: #D32F2F;
             --color-red-dark: #a72626;
             --color-text-dark: #3E2723;
             --font-main: 'Poppins', sans-serif;
@@ -25,9 +23,7 @@
             --border-radius-main: 15px;
         }
 
-        /* =================================================================
-           2. Global Resets & Body
-           ================================================================= */
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -73,9 +69,7 @@
             padding: 60px 0;
         }
 
-        /* =================================================================
-           3. Reusable Components (Buttons, Cards)
-           ================================================================= */
+        /* Components */
         .btn {
             display: inline-block;
             padding: 12px 30px;
@@ -90,7 +84,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             box-shadow: var(--shadow-soft);
-            text-decoration: none; /* Ensure all buttons look like buttons */
+            text-decoration: none;
         }
 
         .btn-primary {
@@ -103,18 +97,6 @@
             transform: translateY(-2px);
         }
 
-        .btn-secondary {
-            background-color: #fff;
-            color: var(--color-dark-brown);
-            border: 2px solid var(--color-dark-brown);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--color-dark-brown);
-            color: #fff;
-        }
-
-        /* Menu-style Product Card */
         .menu-card {
             background: var(--color-menu-tan);
             border: 2px solid var(--color-menu-border);
@@ -123,9 +105,6 @@
             box-shadow: var(--shadow-soft);
         }
         
-        /* =================================================================
-           3.5 Announcement Bar
-           ================================================================= */
         .announcement-bar {
             background: var(--color-dark-brown);
             color: var(--color-menu-tan);
@@ -135,9 +114,51 @@
             font-size: 0.9rem;
         }
 
-        /* =================================================================
-           4. Header & Navigation
-           ================================================================= */
+        /* Form Styles */
+        .form-container {
+            max-width: 650px;
+            margin: 40px auto 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: var(--border-radius-main);
+            border: 2px solid var(--color-menu-border);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--color-menu-border);
+            border-radius: 10px;
+            font-family: var(--font-main);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            background-color: #fff;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-festive-red);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Navigation */
         .main-header {
             background: #fff;
             padding: 15px 0;
@@ -185,31 +206,20 @@
             border: none;
         }
 
-       /* =================================================================
-   5. Hero Section
-   ================================================================= */
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 50vh;
-    padding: 40px;
-
-    /* --- NEW STYLES --- */
-    
-    /* Sets the background image */
-    /* NOTE: Web paths must use forward slashes (/) not backslashes (\) */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                      url('images/hero.png');
-    
-    background-size: cover;       /* Ensures the image covers the whole area */
-    background-position: center top;  /* Aligns image to the top */
-    background-repeat: no-repeat; /* Stops the image from tiling */
-
-    /* Change the text color to white to stand out */
-    color: #fff; 
-}
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 50vh;
+            padding: 40px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/hero.png');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            color: #fff; 
+        }
 
         .hero-content h1 {
             font-size: 3.5rem;
@@ -221,9 +231,7 @@
             font-weight: 600;
         }
 
-        /* =================================================================
-           NEW: How to Order Section
-           ================================================================= */
+        /* How to Order */
         #how-to-order h2 {
             margin-bottom: 40px;
         }
@@ -274,14 +282,13 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
+            margin-top: 40px;
         }
 
-        /* =================================================================
-           6. Main Product Navigation (Simple)
-           ================================================================= */
+        /* Category Navigation */
         .product-nav-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin-top: 40px;
         }
@@ -311,9 +318,7 @@
             display: block;
         }
         
-        /* =================================================================
-           7. "Pick 'n' Mix" Sections (Fudge & Hot Choc)
-           ================================================================= */
+        /* Builder Sections */
         .picknmix-section {
             background: var(--color-menu-tan);
         }
@@ -330,7 +335,6 @@
             margin-top: 40px;
         }
         
-        /* Special override for 4-item hot choc grid on desktop */
         @media (min-width: 901px) {
             #hotchoc-flavour-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -353,65 +357,14 @@
         
         .flavour-card h3 {
             font-size: 1.25rem;
-            margin-bottom: 0; /* Removed margin */
-            min-height: 2.5em; /* 2 lines of text */
+            margin-bottom: 0;
+            min-height: 2.5em;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        /* =================================================================
-           8. Gift Boxes & Slabs/Extras
-           ================================================================= */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 40px;
-        }
-        
-        .product-card {
-            background: var(--color-menu-tan);
-            border: 2px solid var(--color-menu-border);
-            border-radius: var(--border-radius-main);
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .product-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: var(--border-radius-main) var(--border-radius-main) 0 0;
-        }
-        
-        .product-card-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .product-card h3 {
-            margin-bottom: 10px;
-        }
-        
-        .product-card p {
-            margin-bottom: 20px;
-            color: var(--color-text-dark);
-            flex-grow: 1;
-        }
-        
-        .product-price {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 0; /* Removed margin */
-        }
-
-        /* Slabs & Extras Section */
+        /* Slabs & Extras */
         #slabs-extras {
             background-color: var(--color-menu-tan);
         }
@@ -453,9 +406,7 @@
             white-space: nowrap;
         }
 
-        /* =================================================================
-           9. Footer
-           ================================================================= */
+        /* Footer */
         .main-footer {
             background: var(--color-dark-brown);
             color: #fff;
@@ -506,41 +457,36 @@
             color: var(--color-menu-tan);
         }
 
-        /* =================================================================
-           10. Responsive Design
-           ================================================================= */
+        /* Mobile Media Queries */
         @media (max-width: 900px) {
-            .product-nav-grid { grid-template-columns: 1fr 1fr; }
+            .product-nav-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
             .flavour-grid { grid-template-columns: 1fr 1fr; }
-            .product-grid { grid-template-columns: 1fr 1fr; }
             .slabs-extras-grid { grid-template-columns: 1fr; }
             .how-to-order-steps { grid-template-columns: 1fr; }
         }
         
-        /* START: MOBILE MENU FIX */
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             .hero-content h1 { font-size: 2.8rem; }
             
             .main-header .container {
-                position: relative; /* Allows nav to be positioned inside */
+                position: relative;
                 justify-content: space-between;
             }
 
             .menu-toggle {
-                display: block; /* Show hamburger */
-                order: -1; /* Move hamburger to the left */
+                display: block;
+                order: -1;
                 font-size: 2rem;
                 cursor: pointer;
                 background: none;
                 border: none;
                 padding: 0;
-                z-index: 1002; /* Make sure it's on top */
+                z-index: 1002;
             }
 
             .logo-link {
                 order: 0;
-                /* Center the logo when hamburger is present */
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
@@ -550,45 +496,33 @@
             }
 
             .main-nav { 
-                /* This is the default HIDDEN state */
                 display: flex;
-                flex-direction: column; /* Stack links vertically */
+                flex-direction: column;
                 gap: 0;
-                
-                position: absolute; /* Position it over the page */
+                position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
-                
-                /* === NEW TRANSLUCENT STYLE === */
-                /* Uses your tan color with 95% opacity */
                 background: rgba(243, 239, 233, 0.95); 
-                
-                /* This adds the modern blur effect */
                 -webkit-backdrop-filter: blur(10px);
                 backdrop-filter: blur(10px);
-                /* === END NEW STYLE === */
-                
-                padding: 80px 20px 20px 20px; /* Add padding (top for header) */
+                padding: 80px 20px 20px 20px;
                 box-shadow: var(--shadow-soft);
-                
-                /* Hide it by moving it up */
                 transform: translateY(-100%); 
                 opacity: 0;
                 visibility: hidden;
                 transition: all 0.3s ease-in-out;
-                z-index: 1001; /* Below toggle, above content */
+                z-index: 1001;
             }
             
             .main-nav.nav-open {
-                /* This is the VISIBLE state */
                 transform: translateY(0);
                 opacity: 1;
                 visibility: visible;
             }
             
             .main-nav a {
-                padding: 15px 0; /* Make links easy to tap */
+                padding: 15px 0;
                 text-align: center;
                 border-bottom: 1px solid var(--color-menu-border);
             }
@@ -596,16 +530,14 @@
                 border-bottom: none;
             }
             .main-nav a:hover {
-                border-bottom-color: var(--color-menu-border); /* Tweak hover */
+                border-bottom-color: var(--color-menu-border);
                 color: var(--color-festive-red);
             }
         }
-        /* END: MOBILE MENU FIX */
         
         @media (max-width: 500px) {
-            .product-nav-grid { grid-template-columns: 1fr; }
             .flavour-grid { grid-template-columns: 1fr; }
-            .product-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -623,18 +555,18 @@
             <nav class="main-nav">
                 <a href="#fudge-builder">Fudge</a>
                 <a href="#hot-choc-builder">Hot Choc</a>
-                <a href="#gifts">Gifts</a>
                 <a href="#slabs-extras">Slabs & Extras</a>
+                <a href="#how-to-order" class="btn-secondary" style="border-radius: 5px; padding: 0 10px;">Order Now</a>
             </nav>
-            </div>
+        </div>
     </header>
 
     <main>
         <section class="hero">
             <div class="hero-content">
                 <h1>Stir Up Some Magic</h1>
-                <p>Festive Hot Choc Shots, Christmas Fudge, Gifts & More</p>
-                <a href="#how-to-order" class="btn btn-primary btn-large">How to Order</a>
+                <p>Festive Hot Choc Shots, Christmas Fudge & More</p>
+                <a href="#how-to-order" class="btn btn-primary btn-large">Start My Order</a>
             </div>
         </section>
 
@@ -650,23 +582,60 @@
                     <div class="step">
                         <span>1</span>
                         <h3>Browse The Menu</h3>
-                        <p>Look through our treats below and decide what you'd like.</p>
+                        <p>Look through the treats below and decide what you'd like.</p>
                     </div>
                     <div class="step">
                         <span>2</span>
-                        <h3>Send Your Order</h3>
-                        <p>DM us on social media or send an email with your list.</p>
+                        <h3>Fill out the Form</h3>
+                        <p>Enter your details and list your treats in the order form below.</p>
                     </div>
                     <div class="step">
                         <span>3</span>
                         <h3>We'll Confirm</h3>
-                        <p>We'll reply to confirm your order details and arrange payment.</p>
+                        <p>We'll email you back with the total price and a payment link.</p>
                     </div>
                 </div>
+
+                <div class="form-container">
+                    <form action="https://formspree.io/f/xnnwaaln" method="POST">
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Your email address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="order-details">Your Order Wishlist</label>
+                            <textarea id="order-details" name="message" class="form-control" placeholder="Example:
+- 1x Fudge Box (Rocky Road, Mint, Oreo)
+- 2x Hot Choc Shots (Orange)
+- 1x Marshmallow bag" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="delivery">Delivery or Collection?</label>
+                            <select id="delivery" name="delivery-method" class="form-control">
+                                <option value="Collection">Collection (Great Yarmouth)</option>
+                                <option value="Local Delivery">Local Delivery</option>
+                                <option value="Postage">UK Wide Postage</option>
+                            </select>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 30px;">
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Order Request</button>
+                            <p style="font-size: 0.85rem; margin-top: 15px; color: #666;">We usually reply within 24 hours.</p>
+                        </div>
+                    </form>
+                </div>
                 <div class="order-links">
-                    <a href="https://www.instagram.com/hot_choc_shots/" class="btn btn-primary" target="_blank">Order on Instagram</a>
-                    <a href="https://facebook.com/hotchocshots" class="btn btn-primary" target="_blank">Order on Facebook</a>
-                    <a href="mailto:hello@hotchocshots.co.uk" class="btn btn-secondary">Email Your Order</a>
+                    <p style="width: 100%; text-align: center; margin-bottom: 15px; font-weight: 600;">Prefer to DM us?</p>
+                    <a href="https://www.instagram.com/hot_choc_shots/" class="btn btn-primary" target="_blank">Instagram</a>
+                    <a href="https://facebook.com/hotchocshots" class="btn btn-primary" target="_blank">Facebook</a>
                 </div>
             </div>
         </section>
@@ -683,10 +652,6 @@
                         <span>☕️</span>
                         Hot Choc Shots
                     </a>
-                    <a href="#gifts" class="product-nav-card">
-                        <span>🎁</span>
-                        Gift Boxes
-                    </a>
                     <a href="#slabs-extras" class="product-nav-card">
                         <span>🌟</span>
                         Slabs & Extras
@@ -697,7 +662,6 @@
 
         <section id="fudge-builder" class="section-padding picknmix-section">
             <div class="container">
-                
                 <div class="box-builder-header">
                     <h2>Chocolate Fudge Flavours</h2>
                     <p>
@@ -753,12 +717,11 @@
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
         </section>
 
         <section id="hot-choc-builder" class="section-padding">
             <div class="container">
-                
                 <div class="box-builder-header">
                     <h2>Hot Choc Shot Flavours</h2>
                     <p>
@@ -787,38 +750,6 @@
                         <div class="flavour-card-content">
                             <h3>White Choc & Milky Button</h3>
                         </div>
-                    </div>
-                </div>
-                </div>
-        </section>
-
-        <section id="gifts" class="section-padding">
-            <div class="container">
-                <h2>Gift Boxes</h2>
-                <div class="product-grid">
-                    <div class="product-card">
-                        <img src="images/FudgeChristmasTin.png" alt="Fudge Christmas Tin">
-                        <div class="product-card-content">
-                            <h3>Fudge Christmas Tin</h3>
-                            <p>9 pieces of fudge (Pick 'n' Mix) in a Christmas Tin keepsake.</p>
-                            <span class="product-price">£9.00</span>
-                            </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="images/mug.jpg" alt="Hot Choc Shot Mug">
-                        <div class="product-card-content">
-                            <h3>Hot Choc Shot Mug</h3>
-                            <p>1 Hot Choc Shot, 1 bag of marshmallows presented in a Christmas mug.</p>
-                            <span class="product-price">£6.00</span>
-                            </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="images/EverythingBox.png" alt="The Everything Box">
-                        <div class="product-card-content">
-                            <h3>Everything Box</h3>
-                            <p>2 Hot Choc Shots, 2 Slabs, 3 pieces of Fudge, 1 bag of Marshmallows.</p>
-                            <span class="product-price">£10.00</span>
-                            </div>
                     </div>
                 </div>
             </div>
@@ -858,7 +789,7 @@
                         <p style="text-align: center; font-weight: 600; font-size: 1.2rem; color: var(--color-festive-red);">
                             Special Offer: Get 2 Slabs for £5.00!
                         </p>
-                        </div>
+                    </div>
                     
                     <div class="menu-card">
                         <h3>Extras</h3>
@@ -876,12 +807,11 @@
                             </div>
                             <span class="menu-item-price">£0.50</span>
                         </div>
-                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-
-        </main>
+    </main>
     
     <footer class="main-footer">
         <div class="container">
@@ -903,7 +833,6 @@
                     <ul>
                         <li><a href="#fudge-builder">Fudge Pick 'n' Mix</a></li>
                         <li><a href="#hot-choc-builder">Hot Choc Shots</a></li>
-                        <li><a href="#gifts">Gift Boxes</a></li>
                         <li><a href="#slabs-extras">Slabs & Extras</a></li>
                     </ul>
                 </div>
@@ -928,14 +857,12 @@
             const menuToggle = document.querySelector('.menu-toggle');
             const mainNav = document.querySelector('.main-nav');
             
-            // When you click the hamburger button...
             if (menuToggle && mainNav) {
                 menuToggle.addEventListener('click', () => {
-                    //...add or remove the 'nav-open' class from the menu
                     mainNav.classList.toggle('nav-open');
                 });
             }
         });
     </script>
-    </body>
+</body>
 </html>
